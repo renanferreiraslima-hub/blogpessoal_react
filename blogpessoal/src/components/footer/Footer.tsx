@@ -1,44 +1,46 @@
+import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon } from "@phosphor-icons/react";
+
 function Footer() {
+
+    const ano = new Date().getFullYear();
+
     return (
-        <footer className="bg-indigo-950 text-gray-300 mt-10">
-            <div className="container mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <>
+            <div className="flex justify-center bg-indigo-900 text-white">
+                <div className="container flex flex-col items-center py-4">
 
-                {/* SOBRE */}
-                <div>
-                    <h2 className="text-white text-2xl font-bold mb-2">
-                        MeuBlog
-                    </h2>
-                    <p className="text-sm">
-                        Um espaço para compartilhar ideias, pensamentos e aprendizados.
+                    <p className="text-xl font-bold">
+                        Blog Pessoal Renan Lima | Copyright: {ano}
                     </p>
-                </div>
 
-                {/* LINKS */}
-                <div>
-                    <h3 className="text-white font-semibold mb-3">Navegação</h3>
-                    <ul className="flex flex-col gap-2">
-                        <li><a href="#" className="hover:text-white">Home</a></li>
-                        <li><a href="#" className="hover:text-white">Posts</a></li>
-                        <li><a href="#" className="hover:text-white">Sobre</a></li>
-                    </ul>
-                </div>
+                    <p className="text-lg">
+                        Acesse minhas redes sociais
+                    </p>
 
-                {/* CONTATO */}
-                <div>
-                    <h3 className="text-white font-semibold mb-3">Contato</h3>
-                    <div className="flex flex-col gap-2 text-sm">
-                        <span>Email: contato@email.com</span>
-                        <span>Instagram: @meublog</span>
+                    <div className="flex gap-2 mt-2">
+
+                        <a 
+                            href="https://www.linkedin.com/in/renanferreiralima" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            <LinkedinLogoIcon size={48} weight="bold" />
+                        </a>
+
+                        <a 
+                            href="https://www.instagram.com/renan_ferreira" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            <InstagramLogoIcon size={48} weight="bold" />
+                        </a>
+
+
                     </div>
+
                 </div>
-
             </div>
-
-            {/* COPY */}
-            <div className="text-center text-sm py-4 border-t border-indigo-800">
-                © 2026 MeuBlog - Todos os direitos reservados
-            </div>
-        </footer>
+        </>
     );
 }
 

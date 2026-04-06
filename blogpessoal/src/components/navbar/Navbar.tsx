@@ -1,29 +1,27 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     return (
         <nav className="bg-indigo-900 text-white shadow-md">
             <div className="container mx-auto px-4 flex justify-between items-center h-16">
 
-                {/* LOGO */}
                 <h1 className="text-xl font-bold">
-                    MeuBlog
+                    Blog Pessoal Renan Lima
                 </h1>
 
-                {/* MENU DESKTOP */}
                 <div className="hidden md:flex gap-6 items-center">
-                    <a href="#" className="hover:text-indigo-300 transition">Home</a>
-                    <a href="#" className="hover:text-indigo-300 transition">Posts</a>
-                    <a href="#" className="hover:text-indigo-300 transition">Sobre</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/posts">Posts</Link>
+                    <Link to="/sobre">Sobre</Link>
 
-                    <button className="bg-indigo-500 px-4 py-2 rounded-lg hover:bg-indigo-600 transition">
+                    <button className="bg-indigo-500 px-4 py-2 rounded-lg">
                         Login
                     </button>
                 </div>
 
-                {/* BOTÃO MOBILE */}
                 <button 
                     className="md:hidden"
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -32,16 +30,11 @@ function Navbar() {
                 </button>
             </div>
 
-            {/* MENU MOBILE */}
             {menuOpen && (
                 <div className="md:hidden bg-indigo-800 px-4 pb-4 flex flex-col gap-3">
-                    <a href="#" className="hover:text-indigo-300">Home</a>
-                    <a href="#" className="hover:text-indigo-300">Posts</a>
-                    <a href="#" className="hover:text-indigo-300">Sobre</a>
-
-                    <button className="bg-indigo-500 py-2 rounded-lg">
-                        Login
-                    </button>
+                    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                    <Link to="/posts" onClick={() => setMenuOpen(false)}>Posts</Link>
+                    <Link to="/sobre" onClick={() => setMenuOpen(false)}>Sobre</Link>
                 </div>
             )}
         </nav>
