@@ -1,91 +1,48 @@
 function Home() {
     return (
-        <section
-            style={{
-                backgroundColor: "#312e81", // corrigido (era backgroudColor)
-                display: "flex",
-                justifyContent: "center"
-            }}
-        >
-            <article
-                style={{
-                    display: "grid", // faltava definir grid
-                    gridTemplateColumns: "1fr 1fr",
-                    color: "white",
-                    width: "100%",
-                    maxWidth: "1280px"
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        gap: "1rem",
-                        paddingTop: "1rem",
-                        paddingBottom: "1rem"
-                    }}
-                >
-                    <div>
-                        <h2
-                            style={{
-                                fontSize: "3rem",
-                                fontWeight: "bold"
-                            }}
-                        >
-                            Seja Bem Vinde!
-                        </h2>
+        <section className="bg-linear-to-r from-indigo-900 via-purple-900 to-indigo-800 min-h-screen flex items-center">
+            
+            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center text-white">
 
-                        <p
-                            style={{
-                                fontSize: "1.25rem"
-                            }}
-                        >
-                            Expresse aqui seus pensamentos e opiniões
-                        </p>
+                {/* TEXTO */}
+                <div className="flex flex-col gap-6">
+                    <span className="bg-indigo-500 w-fit px-3 py-1 rounded-full text-sm">
+                        Plataforma Digital
+                    </span>
 
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "space-around",
-                                gap: "1rem"
-                            }}
-                        >
-                            <div
-                                style={{
-                                    borderRadius: "0.5rem",
-                                    color: "white",
-                                    border: "2px solid white",
-                                    padding: "0.5rem 1rem",
-                                    cursor: "pointer"
-                                }}
-                            >
-                                Nova Postagem
-                            </div>
-                        </div>
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                        Transforme ideias em <span className="text-indigo-400">conteúdo</span>
+                    </h1>
+
+                    <p className="text-lg md:text-xl text-gray-200">
+                        Compartilhe suas opiniões, conecte-se com pessoas e construa sua presença online de forma simples e rápida.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <button className="bg-indigo-500 hover:bg-indigo-600 transition px-6 py-3 rounded-lg font-semibold">
+                            Começar Agora
+                        </button>
+
+                        <button className="border border-white px-6 py-3 rounded-lg hover:bg-white hover:text-indigo-900 transition">
+                            Explorar
+                        </button>
                     </div>
                 </div>
 
-                <div>
-                    <figure
-                        style={{
-                            display: "flex",
-                            justifyContent: "center"
-                        }}
-                    >
+                {/* IMAGEM */}
+                <div className="flex justify-center">
+                    <div className="bg-white/10 backdrop-blur-lg p-6 rounded-2xl shadow-lg">
                         <img
                             src="https://i.imgur.com/fyfri1v.png"
-                            alt="Imagem Pagina Home"
-                            style={{
-                                width: "60%"
-                            }}
+                            alt="Imagem Home"
+                            className="w-64 md:w-80"
                         />
-                    </figure>
+                    </div>
                 </div>
-            </article>
+
+            </div>
         </section>
-    );
+    )
 }
 
-export default Home;
+export default Home
