@@ -1,44 +1,51 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, type ReactNode } from "react";
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../contexts/AuthContext";
+import { ToastAlerta } from "../../utils/ToastAlerta";
 
 function Navbar() {
-    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
-    return (
-        <nav className="bg-indigo-900 text-white shadow-md">
-            <div className="container mx-auto px-4 flex justify-between items-center h-16">
+    const navigate = useNavigate();
 
-                <h1 className="text-xl font-bold">
-                    Blog Pessoal Renan Lima
-                </h1>
+    const { usuario, handleLogout } = useContext(AuthContext)
 
-                <div className="hidden md:flex gap-6 items-center">
-                    <Link to="/">Home</Link>
-                    <Link to="/posts">Posts</Link>
-                    <Link to="/sobre">Sobre</Link>
+    function logout() {
 
-                    <button className="bg-indigo-500 px-4 py-2 rounded-lg">
-                        Login
-                    </button>
+        handleLogout()
+        ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
+        navigate('/')
+    }
+
+    let component: ReactNode
+
+    if (usuario.token !== "") {
+
+        component = (
+
+            <div className='w-full flex justify-center py-4
+            			   bg-indigo-900 text-white'>
+            
+                <div className="container flex justify-between text-lg mx-8">
+                    <Link to='/home' className="text-2xl font-bold">Blog Pessoal</Link>
+
+                    <div className='flex gap-4'>
+                        <Link to='/postagens' className='hover:underline'>Postagens</Link>
+                        <Link to='/temas' className='hover:underline'>Temas</Link>
+                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
+                        <Link to='/perfil' className='hover:underline'>Perfil</Link>
+                        <Link to='' onClick={logout} className='hover:underline'>Sair</Link>
+                    </div>
                 </div>
-
-                <button 
-                    className="md:hidden"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    ☰
-                </button>
             </div>
 
-            {menuOpen && (
-                <div className="md:hidden bg-indigo-800 px-4 pb-4 flex flex-col gap-3">
-                    <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                    <Link to="/posts" onClick={() => setMenuOpen(false)}>Posts</Link>
-                    <Link to="/sobre" onClick={() => setMenuOpen(false)}>Sobre</Link>
-                </div>
-            )}
-        </nav>
-    );
+        )
+    }
+
+    return (
+        <>
+            { component }
+        </>
+    )
 }
 
-export default Navbar;
+export default Navbar
