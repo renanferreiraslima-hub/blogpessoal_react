@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
-import { buscar, atualizar, cadastrar } from "../../components/services/Service";
+import { buscar, atualizar, cadastrar } from "../../services/Service";
 import { AuthContext } from "../../contexts/AuthContext";
 import type Tema from "../../models/Tema";
 import { ToastAlerta } from "../../utils/ToastAlerta";

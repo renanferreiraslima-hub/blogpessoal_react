@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { ClipLoader } from "react-spinners"
-import { buscar, deletar } from "../../components/services/Service"
+import { buscar, deletar } from "../../services/Service"
 import { AuthContext } from "../../contexts/AuthContext"
 import type Tema from "../../models/Tema"
 import { ToastAlerta } from "../../utils/ToastAlerta"

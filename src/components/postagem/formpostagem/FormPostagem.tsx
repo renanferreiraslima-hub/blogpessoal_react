@@ -4,9 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { AuthContext } from "../../../contexts/AuthContext";
 import type Postagem from "../../../models/Postagem";
 import type Tema from "../../../models/Tema";
-import { atualizar } from "../../services/Service";
-import { buscar } from "../../services/Service";
-import { cadastrar } from "../../services/Service";
+import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 
